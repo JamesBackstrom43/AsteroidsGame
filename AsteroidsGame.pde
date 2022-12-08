@@ -2,7 +2,7 @@ Particle [] stars = new Particle[1500];
 private int speed = 1;
 private int score = 0;
 private int level = 0;
-private int lives = 5;
+private int lives = 3;
 private double GameOver = 0;
 private int numOfAsteroids = 15;
 Spaceship [] ship = new Spaceship[1];
@@ -78,9 +78,6 @@ if(asteroid.size() == 0 && score == 15){
 if(score % 15 == 0){
   level = score/15;
 }
-//if(score % 15 == 0){
-//  lives = 5;
-//}
 if(level == 3){
  numOfAsteroids = 20; 
 }
@@ -121,7 +118,7 @@ public void keyPressed(){
  }
 }
   if(key == 'w'){
-    ship[0].accelerate(.2);
+    ship[0].accelerate(.1);
     speed = 1;
     if(asteroid.size() == 0){
      for(int i = 0;i<numOfAsteroids;i++){
@@ -154,4 +151,3 @@ public void keyPressed(){
      bullet.add(new Bullet(ship[0]));
    }
    }
-   
