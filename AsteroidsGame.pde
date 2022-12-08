@@ -10,7 +10,7 @@ ArrayList <Asteroid> asteroid = new ArrayList <Asteroid>();
 ArrayList <Bullet> bullet = new ArrayList <Bullet>();
 public void setup() 
 {
-  size(500,500);
+  size(750,750);
   for(int i = 0;i<stars.length;i++){
     stars[i] = new Particle(); 
     ship[0] = new Spaceship();
@@ -78,6 +78,9 @@ if(asteroid.size() == 0 && score == 15){
 if(score % 15 == 0){
   level = score/15;
 }
+if(score % 15 == 0){
+  lives = 3;
+}
 if(level == 3){
  numOfAsteroids = 20; 
 }
@@ -119,6 +122,16 @@ public void keyPressed(){
 }
   if(key == 'w'){
     ship[0].accelerate(.1);
+    speed = 1;
+    if(asteroid.size() == 0){
+     for(int i = 0;i<numOfAsteroids;i++){
+   Asteroid asteroid1 = new Asteroid(); 
+   asteroid.add(asteroid1);
+  }
+  }
+  }
+  if(key == 's'){
+    ship[0].accelerate(-.1);
     speed = 1;
     if(asteroid.size() == 0){
      for(int i = 0;i<numOfAsteroids;i++){
